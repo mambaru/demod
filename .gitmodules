@@ -10,12 +10,12 @@
 [submodule "wfc_logger"]
 	path = wfc_logger
 	url = git@gitlab.lan:cpp/wfc_logger.git
-[submodule "comet_hub"]
-	path = comet_hub
-	url = git@gitlab.lan:cpp/comet_hub.git
-[submodule "faslib"]
-	path = faslib
-	url = git@github.com:migashko/faslib.git
 [submodule "wfc_hub"]
 	path = wfc_hub
 	url = git@gitlab.lan:cpp/wfc_hub.git
+[submodule "wfc_demo"]
+	path = wfc_demo
+	url = git@gitlab.lan:cpp/wfc_demo.git
+[submodule "faslib"]
+	path = faslib
+	url = git@github.com:migashko/faslib.git

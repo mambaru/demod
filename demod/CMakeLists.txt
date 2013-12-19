@@ -5,9 +5,7 @@ include_directories(../wfc_config)
 include_directories(../wfc_core)
 include_directories(../wfc_logger)
 include_directories(../wfc_hub)
-include_directories(./module)
-
-add_subdirectory(module)
+include_directories(../wfc_demo)
 
 add_executable(demod demod.cpp )
 

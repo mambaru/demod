@@ -23,6 +23,7 @@ add_subdirectory(wfc_core)
 add_subdirectory(wfc_config)
 add_subdirectory(wfc_logger)
 add_subdirectory(wfc_hub)
+add_subdirectory(wfc_demo)
 
 # release
 # add_subdirectory(wfc/wfc)
@@ -31,6 +32,5 @@ add_subdirectory(wfc_hub)
 # add_subdirectory(wfc_logger/logger)
 # add_subdirectory(wfc_hub/hub)
 
-add_subdirectory(cometd)
-add_subdirectory(demo)
+add_subdirectory(demod)
 
