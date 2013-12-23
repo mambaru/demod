@@ -7,7 +7,7 @@
 #include "build_info.h"
 #include <core/build_info.h>
 
-#include <demo/demo_module.hpp>
+#include <module/demo_module.hpp>
 
 void test()
 {
