@@ -1,6 +1,7 @@
 include(BuildInfo)
 
 include_directories(../wfc)
+include_directories(../wfc_startup)
 include_directories(../wfc_config)
 include_directories(../wfc_core)
 include_directories(../wfc_logger)
@@ -13,6 +14,6 @@ add_executable(demod demod.cpp )
 
 #message(STATUS ${COMET} )
 
-target_link_libraries(demod wfc wfc_core wfc_config wfc_logger wfc_hub wfc_demo)
-add_dependencies(demod wfc wfc_core wfc_config wfc_logger wfc_hub wfc_demo)
+target_link_libraries(demod wfc wfc_startup wfc_core wfc_config wfc_logger wfc_hub wfc_demo)
+add_dependencies(demod wfc wfc_startup wfc_core wfc_config wfc_logger wfc_hub wfc_demo)
 build_info(demod demod)
