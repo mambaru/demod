@@ -9,10 +9,6 @@
 
 #include <module/demo_module.hpp>
 
-void test()
-{
-  return void();
-}
 
 int main(int argc, char* argv[])
 {
