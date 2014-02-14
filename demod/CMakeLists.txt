@@ -17,6 +17,11 @@ add_executable(demod demod.cpp )
 
 #message(STATUS ${COMET} )
 
-target_link_libraries(demod wfc wfc_startup wfc_core wfc_config wfc_logger wfc_hub wfc_pubsub-service demo  wfc_demo)
-add_dependencies(demod wfc wfc_startup wfc_core wfc_config wfc_logger wfc_hub wfc_pubsub-service demo wfc_demo)
+#target_link_libraries(demod wfc wfc_startup wfc_core wfc_config wfc_logger wfc_hub wfc_pubsub-service demo  wfc_demo)
+#add_dependencies(demod wfc wfc_startup wfc_core wfc_config wfc_logger wfc_hub wfc_pubsub-service demo wfc_demo)
+
+target_link_libraries(demod wfc wfc_startup wfc_core wfc_config wfc_logger wfc_hub )
+add_dependencies(demod wfc wfc_startup wfc_core wfc_config wfc_logger wfc_hub )
+
+
 build_info(demod demod)
