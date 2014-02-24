@@ -7,7 +7,7 @@ include_directories(../wfc_core)
 include_directories(../wfc_logger)
 include_directories(../wfc_hub)
 include_directories(../wfc_demo)
-include_directories(../wfc_pubsub-service)
+#include_directories(../wfc_pubsub-service)
 
 include_directories(../demo)
 
