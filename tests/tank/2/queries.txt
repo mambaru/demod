@@ -1,3 +1,0 @@
-69
-{"jsonrpc":"2.0","method":"reverse","id":1,"params":[1,2,3,4,5,6]}
-
