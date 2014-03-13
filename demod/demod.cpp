@@ -22,9 +22,9 @@ int main(int argc, char* argv[])
       { "core",    std::make_shared< wfc::core_module   >() },
       { "config",  std::make_shared< wfc::config_module >() },
       { "logger",  std::make_shared< wfc::logger_module >() }, 
-      { "hub",     std::make_shared< wfc::hub_module    >() }//,
+      { "hub",     std::make_shared< wfc::hub_module    >() },
 //      { "pubsub-service",     std::make_shared< wfc::pubsub_service_module >() },
-//      { "demo",    std::make_shared< wamba::demo::demo_module >() }
+      { "demo",    std::make_shared< wamba::demo::demo_module >() }
     }
   ).run(argc, argv);
 }
