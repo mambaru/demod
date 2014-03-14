@@ -5,7 +5,7 @@
 #include <logger/logger_module.hpp>
 #include <logger/logger_module.hpp>
 #include <hub/hub_module.hpp>
-//#include <pubsub_service/pubsub_service_module.hpp>
+#include <pubsub_service/pubsub_service_module.hpp>
 
 #include "build_info.h"
 #include <core/build_info.h>
@@ -23,8 +23,10 @@ int main(int argc, char* argv[])
       { "config",  std::make_shared< wfc::config_module >() },
       { "logger",  std::make_shared< wfc::logger_module >() }, 
       { "hub",     std::make_shared< wfc::hub_module    >() },
-//      { "pubsub-service",     std::make_shared< wfc::pubsub_service_module >() },
+      { "pubsub-service",     std::make_shared< wfc::pubsub_service_module >() }
+      /*,
       { "demo",    std::make_shared< wamba::demo::demo_module >() }
+      */
     }
   ).run(argc, argv);
 }
