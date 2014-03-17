@@ -25,3 +25,6 @@
 [submodule "wfc_pubsub-service"]
 	path = wfc_pubsub-service
 	url = git@gitlab.lan:cpp/wfc_pubsub-service.git
+[submodule "wfc_pubsub-gateway"]
+	path = wfc_pubsub-gateway
+	url = git@gitlab.lan:cpp/wfc_pubsub-gateway.git
