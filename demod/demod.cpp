@@ -1,3 +1,4 @@
+
 #include <wfc/wfc.hpp>
 #include <core/core_module.hpp>
 #include <startup/startup_module.hpp>
@@ -16,6 +17,8 @@
 
 int main(int argc, char* argv[])
 {
+  wfc::pubsub::message tmp;
+  //wfc::pubsub::request::publish tmp;
   return wfc::wfc(
     demod_build_info_string,
     {
