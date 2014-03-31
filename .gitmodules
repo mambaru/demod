@@ -18,7 +18,7 @@
 	url = git@gitlab.lan:cpp/wfc_demo.git
 [submodule "faslib"]
 	path = faslib
-	url = git@github.com:migashko/faslib.git
+	url = https://github.com/migashko/faslib.git
 [submodule "wfc_startup"]
 	path = wfc_startup
 	url = git@gitlab.lan:cpp/wfc_startup.git
