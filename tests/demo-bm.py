@@ -9,12 +9,12 @@ import shlex
 import datetime
 
 config = {
-  'host':'192.168.2.238',
-  'port':12347,
+  'host':'0.0.0.0',
+  'port':12345,
   'method': 'set',
   'params': {'name':'name1','value':[1,2,3,4,5]},
   'result': None,
-  'count': 100000,
+  'count': 1000000,
   'show':1000
 }
 
@@ -46,7 +46,8 @@ class client:
     data = []
     while True:
       data += self.cli.recv(4096*2)
-      if data[-1:][0]=='\n':
+      #print(data[-1:][0])
+      if len(data) > 0 and data[-1:][0]=='\n':
         break
     respstr = ''
     for d in data:
@@ -120,7 +121,7 @@ class client:
 
 if __name__ == '__main__':
   cli = client()
-  cli.benchmark2()
+  cli.benchmark1()
 
   
   
