@@ -7,12 +7,23 @@ import re
 import argparse
 import shlex
 import datetime
+import struct
+
+config1 = {
+  'host':'0.0.0.0',
+  'port':12345,
+  'method': 'set',
+  'params': {'name':'name1','value':[1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5]},
+  'result': None,
+  'count': 1000000,
+  'show':1000
+}
 
 config = {
   'host':'0.0.0.0',
   'port':12345,
-  'method': 'set',
-  'params': {'name':'name1','value':[1,2,3,4,5]},
+  'method': 'get',
+  'params': {'name':'name1'},
   'result': None,
   'count': 1000000,
   'show':1000
@@ -30,7 +41,18 @@ class client:
   
   def connect(self):
     self.cli = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    
+    #s.bind((HOST, PORT))
+    #self.cli.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    self.cli.setsockopt(socket.SOL_SOCKET, socket.SO_LINGER, struct.pack('ii', 1, 0) )
+    #self.cli.bind(("0.0.0.0", 22222))
+    #self.cli.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     self.cli.connect( (self.conf['host'],int(self.conf['port']) ) )
+    #self.cli.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    
+  def close(self):
+    self.cli.shutdown(socket.SHUT_RDWR);
+    self.cli.close();
     
 
   def request(self):
@@ -43,6 +65,7 @@ class client:
     
     #print(reqstr)
     self.cli.send(reqstr)
+    #return
     data = []
     while True:
       data += self.cli.recv(4096*2)
@@ -66,7 +89,7 @@ class client:
   def bench1(self):
     self.connect()
     ts = self.request_ts()
-    self.cli.close()
+    self.close()
     self.cli=None
     return ts
 
@@ -115,6 +138,7 @@ class client:
         self.show(rate)
         start = datetime.datetime.now()
     print("CLOSE")
+    self.cli.shutdown();
     self.cli.close()
   
     
