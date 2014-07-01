@@ -9,7 +9,7 @@ import shlex
 import datetime
 import struct
 
-config1 = {
+config = {
   'host':'0.0.0.0',
   'port':12345,
   'method': 'set',
@@ -19,7 +19,7 @@ config1 = {
   'show':1000
 }
 
-config = {
+config1 = {
   'host':'0.0.0.0',
   'port':12345,
   'method': 'get',
@@ -47,6 +47,7 @@ class client:
     self.cli.setsockopt(socket.SOL_SOCKET, socket.SO_LINGER, struct.pack('ii', 1, 0) )
     #self.cli.bind(("0.0.0.0", 22222))
     #self.cli.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    self.cli.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
     self.cli.connect( (self.conf['host'],int(self.conf['port']) ) )
     #self.cli.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     
@@ -63,8 +64,13 @@ class client:
       'params':self.conf['params']
     })+"\r\n";
     
-    #print(reqstr)
-    self.cli.send(reqstr)
+    ##self.cli.send(reqstr)
+    sd = reqstr[:5];
+    self.cli.sendall(sd)
+    #print(sd)
+    sd = reqstr[5:];
+    self.cli.sendall(sd)
+    #print(sd)
     #return
     data = []
     while True:
@@ -76,7 +82,8 @@ class client:
     for d in data:
       if d>=32 and d <='~':
         respstr+=d
-    #print(respstr)
+    print(respstr)
+    #exit(0)
     return json.loads( respstr );
   
   def request_ts(self):
