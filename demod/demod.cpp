@@ -18,8 +18,6 @@
 
 int main(int argc, char* argv[])
 {
-  wfc::pubsub::message tmp;
-  //wfc::pubsub::request::publish tmp;
   return wfc::wfc(
     demod_build_info_string,
     {
