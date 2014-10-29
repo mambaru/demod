@@ -15,7 +15,6 @@
 
 #include <module/demo_module.hpp>
 
-
 int main(int argc, char* argv[])
 {
   return wfc::wfc(
