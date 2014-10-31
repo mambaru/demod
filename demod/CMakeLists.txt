@@ -22,8 +22,7 @@ add_executable(demod demod.cpp )
 #target_link_libraries(demod wfc wfc_startup wfc_core wfc_config wfc_logger wfc_hub wfc_pubsub-service demo  wfc_demo)
 #add_dependencies(demod wfc wfc_startup wfc_core wfc_config wfc_logger wfc_hub wfc_pubsub-service demo wfc_demo)
 
-target_link_libraries(demod wfc_demo wfc wfc_startup wfc_core wfc_config wfc_logger wfc_hub wfc_repli-hub wfc_pubsub-service wfc_pubsub-gateway demo )
-add_dependencies(demod wfc_demo wfc wfc_startup wfc_core wfc_config wfc_logger wfc_hub wfc_repli-hub wfc_pubsub-service wfc_pubsub-gateway demo )
-
+target_link_libraries(demod wfc_demo wfc wfc_startup wfc_core wfc_config wfc_logger wfc_hub wfc_repli-hub wfc_pubsub-service wfc_pubsub-gateway demo demo_hash)
+add_dependencies(demod wfc_demo wfc wfc_startup wfc_core wfc_config wfc_logger wfc_hub wfc_repli-hub wfc_pubsub-service wfc_pubsub-gateway demo demo_hash)
 
 build_info(demod demod)

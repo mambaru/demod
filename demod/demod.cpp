@@ -10,10 +10,11 @@
 #include <pubsub_service/pubsub_service_module.hpp>
 #include <pubsub_gateway/pubsub_gateway_module.hpp>
 
-#include "build_info.h"
-#include <core/build_info.h>
+#include "demod_build_info.h"
+//#include <core/build_info.h>
 
 #include <module/demo_module.hpp>
+#include <module/hash_module.hpp>
 
 int main(int argc, char* argv[])
 {
@@ -28,7 +29,8 @@ int main(int argc, char* argv[])
       { "repli-hub",     std::make_shared< wfc::repli_hub_module >() },
       { "pubsub-service",     std::make_shared< wfc::pubsub_service_module >() },
       { "pubsub-gateway",     std::make_shared< wfc::pubsub_gateway_module >() }, 
-      { "demo",    std::make_shared< wamba::demo::demo_module >() }
+      { "demo",    std::make_shared< wamba::demo::demo_module >() },
+      { "hash",    std::make_shared< wamba::demo::hash_module >() }
     }
   ).run(argc, argv);
 }
