@@ -1,0 +1,34 @@
+{
+  "import": [ "math", "random"],
+
+  "values":
+  {
+    "strrnd":"random.randint(1, 100)"
+  }, 
+  
+  "params":
+  {
+    "p-set1":{"key":"key-$N", "value":"'$strrnd'+'_'+str($timestamp)"}
+  }, 
+
+  "results":
+  {
+    "r-set": {"status":true}
+  }, 
+  
+  "queries":
+  {
+    "q-set1":["set", "${p-set1}", "${r-set}"]
+  }, 
+  
+  "notification":
+  {
+    "n-set1":["set", "${p-set1}"]
+  }, 
+  
+  "sequences":
+  {
+    "seq1": ["${q-set1}"],
+    "seq2": ["${n-set1}"]
+  }
+}
