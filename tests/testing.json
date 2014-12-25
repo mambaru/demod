@@ -1,14 +1,15 @@
 {
-  "import": [ "math", "random"],
+  "import": [ "math", "random", "string"],
 
   "values":
   {
-    "strrnd":"random.randint(1, 100)"
+    "strrnd":"{%random.randint(1,10)%}+{%random.randint(1,10)%}+{%random.randint(1,10)%}",
+    "strrnd2": "{% ''.join(random.choice(string.ascii_uppercase) for _ in range(random.randint(1,20))) %}"
   }, 
   
   "params":
   {
-    "p-set1":{"key":"key-$N", "value":"'$strrnd'+'_'+str($timestamp)"}
+    "p-set1":{"key":"key-$N-$C1-$C2", "value":"{%'$strrnd2'+'_'+str($timestamp)%}"}
   }, 
 
   "results":
@@ -18,17 +19,19 @@
   
   "queries":
   {
-    "q-set1":["set", "${p-set1}", "${r-set}"]
-  }, 
-  
-  "notification":
-  {
-    "n-set1":["set", "${p-set1}"]
-  }, 
-  
+    "q-set1":{
+      "method" : "set", 
+      "params" : "${p-set1}", 
+      "result" : "${r-set}"
+    },
+    "n-set1":{
+      "method" : "set", 
+      "params" : "${p-set1}"
+    }
+  },
   "sequences":
   {
-    "seq1": ["${q-set1}"],
-    "seq2": ["${n-set1}"]
+    "seq1": ["${q-set1}", 3, "${q-set1}", 4, "тестовая последовательность 2"],
+    "seq2": ["${n-set1}", 1, "тестовая последовательность 1"]
   }
 }
