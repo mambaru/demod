@@ -10,7 +10,7 @@
   "params":
   {
     "value1": "{%'$strrnd2'+'_'+str($timestamp)%}",
-    "key1": "key-$P-$N-$C-$C1-$C2",
+    "key1": "key-$P-$N-$I-$C1-$C2",
     "key2": "key-${strrnd2}'",
     "p-set":{"key":"${key1}", "data":"$value1"},
     "p-get":{"key":"${key1}"}
@@ -37,13 +37,25 @@
       "method" : "get", 
       "params" : "${p-get}", 
       "result" : "${r-get}"
+    },
+    "set-init":
+    {
+      "method" : "set", 
+      "params" : {"name":"key-$I-$C2", "data":"data-$I-$C2"},
+      "result" : {"status":true}
+    },
+    "get-init":
+    {
+      "method" : "get", 
+      "params" : {"name":"key-$I-$C2"},
+      "result" : {"status":true, "data":"data-$I-$C2"}
     }
   },
 
-  "sequences":
-  {
-    "seq1": ["${q-set1}", 3, "${q-set1}", 4, "${q-get1}", 7, "тестовая последовательность 2"],
-    "seq2": ["${n-set1}", 1, "тестовая последовательность 1"],
-    "tst1": ["${key1}",2, "${key1}",2,"test"]
-  }
+  "seq1": ["${q-set1}", 3, "${q-set1}", 4, "${q-get1}", 7, "тестовая последовательность 2"],
+  "seq2": ["${n-set1}", 1, "тестовая последовательность 1"],
+  "tst1": ["${key1}",2, "${key1}",2,"test"],
+
+  "setget": ["${set-init}", 1000, "${get-init}", 1000, ""]
+
 }
