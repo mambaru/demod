@@ -56,6 +56,13 @@
   "seq2": ["${n-set1}", 1, "тестовая последовательность 1"],
   "tst1": ["${key1}",2, "${key1}",2,"test"],
 
-  "setget": ["${set-init}", 1000, "${get-init}", 1000, ""]
+  "setget": ["${set-init}", 1000, "${get-init}", 1000, ""], 
 
+  "aux": {
+    "example":{
+      "method":"set", 
+      "params" : {"key":"key1", "data":"data1"}, 
+      "result": "Проверка результата не предусмотрена"
+    }
+  }
 }
