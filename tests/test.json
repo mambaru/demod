@@ -1,68 +1,37 @@
 {
-  "import": [ "math", "random", "string"],
-
-  "values":
-  {
-    "strrnd":"{%'_'.join([ str(random.randint(1,10)) for x in range(10)])%}",
-    "strrnd2": "{% ''.join(random.choice(string.ascii_uppercase) for _ in range(random.randint(1,20))) %}"
-  }, 
-  
-  "params":
-  {
-    "value1": "{%'$strrnd2'+'_'+str($timestamp)%}",
-    "key1": "key-$P-$N-$I-$C1-$C2",
-    "key2": "key-${strrnd2}'",
-    "p-set":{"key":"${key1}", "data":"$value1"},
-    "p-get":{"key":"${key1}"}
-  }, 
-
-  "results":
-  {
-    "r-set": {"status":true},
-    "r-get": {"status":true, "key":"$key1", "data":"$value1"}
-  }, 
-  
-  "queries":
-  {
-    "q-set1":{
-      "method" : "set", 
-      "params" : "${p-set}", 
-      "result" : "${r-set}"
-    },
-    "n-set1":{
-      "method" : "set", 
-      "params" : "${p-set}"
-    },
-    "q-get1":{
-      "method" : "get", 
-      "params" : "${p-get}", 
-      "result" : "${r-get}"
-    },
-    "set-init":
-    {
-      "method" : "set", 
-      "params" : {"name":"key-$I-$C2", "data":"data-$I-$C2"},
-      "result" : {"status":true}
-    },
-    "get-init":
-    {
-      "method" : "get", 
-      "params" : {"name":"key-$I-$C2"},
-      "result" : {"status":true, "data":"data-$I-$C2"}
-    }
+  "options":{
+    "keylen":10,
+    "vallen":10
   },
+  
+  "ini":["${ini-set}",10, "инициализация 10 уникальных значений"],
+  "tst":["${tst-set}",10, "${tst-get}",10, "проверка get и set (по 10 запросов)"],
+  "get":["${tst-get}",10, "10 get запросов"],
+  "set":["${tst-set}",10, "10 set запросов"],
 
-  "seq1": ["${q-set1}", 3, "${q-set1}", 4, "${q-get1}", 7, "тестовая последовательность 2"],
-  "seq2": ["${n-set1}", 1, "тестовая последовательность 1"],
-  "tst1": ["${key1}",2, "${key1}",2,"test"],
-
-  "setget": ["${set-init}", 1000, "${get-init}", 1000, ""], 
-
-  "aux": {
-    "example":{
-      "method":"set", 
-      "params" : {"key":"key1", "data":"data1"}, 
-      "result": "Проверка результата не предусмотрена"
-    }
+  "queries":{
+    "ini-set" : {"method":"set", "params":"${ini-set-params}", "result":"${set-result}"},
+    "tst-set" : {"method":"set", "params":"${tst-set-params}", "result":"${set-result}"},
+    "tst-get" : {"method":"get", "params":"${tst-get-params}", "result":"${get-result}"},
+    "set-fail": {"method":"set", "params":"${tst-set-params}", "result":"${set-result-fail}"},
+    "get-fail": {"method":"get", "params":"${tst-get-params}", "result":"${get-result-fail}"}
+  },
+  "params":{
+    "ini-set-params":{"key":"${ini-key}", "value":"${val}"},
+    "tst-set-params":{"key":"${key}", "value":"${val}"},
+    "tst-get-params":{"key":"${key}"}
+  },
+  "results":{
+    "set-result":{"status":true},
+    "get-result":{"status":true, "value":"${val}"},
+    "set-result-fail":{"status":false},
+    "get-result-fail":{"status":true, "value":"bla-bla"}
+  },
+  "data":{
+    "ini-key":"$keypref-$I-$C2-I",
+    "key":"$keypref-$I-$C2-V",
+    "val":"$valpref-$I-$C2",
+    "keypref":"{% ''.join( chr( ord('A') + $C2 % 25 ) for _ in range( $keylen ) )  %}",
+    "valpref":"{% ''.join( chr( ord('A') + $C2 % 25 ) for _ in range( $vallen ) )  %}"
   }
 }
