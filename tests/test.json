@@ -22,7 +22,7 @@
   "params":{
     "ini-set-params":{"key":"${ini-key}", "value":"${val}"},
     "tst-set-params":{"key":"${key}", "value":"${val}"},
-    "tst-get-params":{"key":"${key}"}
+    "tst-get-params":{"key":"${key}", "keys":[] }
   },
   "results":{
     "set-result":{"status":true},
