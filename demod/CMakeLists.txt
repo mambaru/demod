@@ -26,24 +26,24 @@ add_executable(demod demod.cpp )
 SET(
   demod_lib_list
 
-  wfc_startup 
-  wfc_core
-  wfc_config 
-  wfc_logger 
-  wfc_broker
-  wfc_hub 
-  wfc_repli-hub 
-  wfc_pubsub-service 
-  wfc_pubsub-gateway 
-  wfc_demo 
-  wfc
-  demo 
-  demo_hash
+  #wfc_startup 
+  #wfc_core
+  #wfc_config 
+  #wfc_logger 
+  #wfc_broker
+  #wfc_hub 
+  #wfc_repli-hub 
+  #wfc_pubsub-service 
+  #wfc_pubsub-gateway 
+  #wfc_demo 
+  #wfc
+  #demo 
+  #demo_hash
 )
 
 
 target_link_libraries(demod ${demod_lib_list})
 
-add_dependencies(demod ${demod_lib_list})
+#add_dependencies(demod ${demod_lib_list})
 
 build_info(demod demod)

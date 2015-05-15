@@ -1,4 +1,5 @@
 
+/*
 #include <wfc/wfc.hpp>
 #include <core/core_module.hpp>
 #include <startup/startup_module.hpp>
@@ -9,15 +10,14 @@
 #include <repli_hub/repli_hub_module.hpp>
 #include <pubsub_service/pubsub_service_module.hpp>
 #include <pubsub_gateway/pubsub_gateway_module.hpp>
-
 #include "demod_build_info.h"
-//#include <core/build_info.h>
-
 #include <module/demo_module.hpp>
 #include <module/hash_module.hpp>
+*/
 
 int main(int argc, char* argv[])
 {
+  /*
   return wfc::wfc(
     demod_build_info_string,
     {
@@ -34,4 +34,5 @@ int main(int argc, char* argv[])
       { "hash",    std::make_shared< wamba::demo::hash_module >() }
     }
   ).run(argc, argv);
+  */
 }

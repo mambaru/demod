@@ -10,7 +10,7 @@ set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/wfcroot/wfc/cmake")
 
 add_subdirectory(faslib)
 add_subdirectory(wfcroot)
-add_subdirectory(wfc_demo)
+#add_subdirectory(wfc_demo)
 add_subdirectory(demod)
 
 #add_subdirectory(wfc)
