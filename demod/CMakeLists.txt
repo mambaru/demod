@@ -1,18 +1,19 @@
 include(BuildInfo)
 
-include_directories(../wfcroot/wfc)
-include_directories(../wfcroot/wfc_startup)
-include_directories(../wfcroot/wfc_config)
-include_directories(../wfcroot/wfc_core)
-include_directories(../wfcroot/wfc_logger)
-include_directories(../wfcroot/wfc_broker)
-include_directories(../wfcroot/wfc_hub)
-include_directories(../wfcroot/wfc_repli-hub)
-include_directories(../wfcroot/wfc_pubsub-service)
-include_directories(../wfcroot/wfc_pubsub-gateway)
-include_directories(../wfc_demo)
+#include_directories(../wfcroot/wfc)
+#include_directories(../wfcroot/iow)
+#include_directories(../wfcroot/wfc_startup)
+#include_directories(../wfcroot/wfc_config)
+#include_directories(../wfcroot/wfc_core)
+#include_directories(../wfcroot/wfc_logger)
+#include_directories(../wfcroot/wfc_broker)
+#include_directories(../wfcroot/wfc_hub)
+#include_directories(../wfcroot/wfc_repli-hub)
+#include_directories(../wfcroot/wfc_pubsub-service)
+#include_directories(../wfcroot/wfc_pubsub-gateway)
+#include_directories(../wfc_demo)
 
-include_directories(../demo)
+include_directories(..)
 
 add_executable(demod demod.cpp )
 
@@ -25,7 +26,7 @@ add_executable(demod demod.cpp )
 
 SET(
   demod_lib_list
-
+  wfcroot
   #wfc_startup 
   #wfc_core
   #wfc_config 
@@ -44,6 +45,6 @@ SET(
 
 target_link_libraries(demod ${demod_lib_list})
 
-#add_dependencies(demod ${demod_lib_list})
+add_dependencies(demod ${demod_lib_list})
 
 build_info(demod demod)
