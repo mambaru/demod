@@ -18,11 +18,16 @@
 #include <module/hash_module.hpp>
 */
 
+
+
 int main(int argc, char* argv[])
 {
-  return ::wfc::wfc(demod_build_info_string, ::wfc::wfcroot({
+  return ::wfc::wfc(
+    ::wfc::make_build_info<demod_build_info>(), 
+    ::wfc::wfcroot({
     
-  })).run(argc, argv);
+    })
+  ).run(argc, argv);
  
   /*
   return wfc::wfc(
