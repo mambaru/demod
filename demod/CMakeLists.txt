@@ -9,7 +9,6 @@ SET(
   wfcroot
 )
 
-
 target_link_libraries(demod ${demod_lib_list})
 
 add_dependencies(demod ${demod_lib_list})
