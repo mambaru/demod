@@ -7,6 +7,7 @@ add_executable(demod demod.cpp )
 SET(
   demod_lib_list
   wfcroot
+  wfc_demo
 )
 
 target_link_libraries(demod ${demod_lib_list})
