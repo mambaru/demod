@@ -24,9 +24,7 @@ int main(int argc, char* argv[])
 {
   return ::wfc::wfc(
     ::wfc::make_build_info<demod_build_info>(), 
-    ::wfc::wfcroot({
-    
-    })
+    ::wfc::wfcroot({})
   ).run(argc, argv);
  
   /*
