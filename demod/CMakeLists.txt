@@ -1,3 +1,4 @@
+include(Wfc)
 include(BuildInfo)
 
 include_directories(..)
