@@ -2,17 +2,13 @@ cmake_minimum_required(VERSION 2.6)
 
 project(demod)
 
-if ( NOT WFC_READY )
-  set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/wfcroot/wfc/cmake")
-  include(Wfc)
-endif()
+set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/wfcroot/wfc/cmake")
+include(Wfc)
 
 include_directories(wfcroot/faslib)
 include_directories(wfcroot/wfc)
 include_directories(wfcroot/iow)
 
-
 add_subdirectory(wfcroot)
 add_subdirectory(wfc_demo)
 add_subdirectory(demod)
-

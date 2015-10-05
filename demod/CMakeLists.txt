@@ -5,14 +5,10 @@ include_directories(..)
 
 add_executable(demod demod.cpp )
 
-SET(
-  demod_lib_list
-  wfcroot
-  wfc_demo
-)
+SET(demod_libraries wfcroot wfc_demo)
 
-target_link_libraries(demod ${demod_lib_list})
+target_link_libraries(demod ${demod_libraries})
 
-add_dependencies(demod ${demod_lib_list})
+add_dependencies(demod ${demod_libraries})
 
 build_info(demod demod)
