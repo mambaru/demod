@@ -9,7 +9,7 @@ int main(int argc, char* argv[])
   return ::wfc::wfc(
     ::wfc::make_build_info<demod_build_info>(), 
     ::wfc::wfcroot({
-      std::make_shared< ::wamba::demo::demo_package >()
+      std::make_shared< ::wamba::demo_package >()
     })
   ).run(argc, argv);
 }
