@@ -10,6 +10,8 @@ include(Wfc)
 #include_directories(wfcroot/faslib)
 #include_directories(wfcroot/iow)
 
+include_directories(.)
+
 add_subdirectory(wfcroot)
 add_subdirectory(wfc_demo)
 add_subdirectory(demod)
