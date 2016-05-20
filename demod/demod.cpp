@@ -2,7 +2,7 @@
 
 #include <wfc/wfc.hpp>
 #include <wfcroot/wfcroot.hpp>
-#include <wfc_demo/demo/demo_package.hpp>
+#include <wfc_demo/package/demo_package.hpp>
 
 int main(int argc, char* argv[])
 {
