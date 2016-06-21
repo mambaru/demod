@@ -6,10 +6,6 @@ set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/wfcroot/wfc/cmake")
 
 include(Wfc)
 
-#include_directories(wfcroot/wfc)
-#include_directories(wfcroot/faslib)
-#include_directories(wfcroot/iow)
-
 include_directories(.)
 
 add_subdirectory(wfcroot)
