@@ -1,6 +1,6 @@
 [submodule "wfc_demo"]
 	path = wfc_demo
-	url = git@gitlab.lan:cpp/wfc_demo.git
+	url = git@github.lan:cpp/wfc_demo.git
 [submodule "wfcroot"]
 	path = wfcroot
 	url = git@github.lan:cpp/wfcroot.git
