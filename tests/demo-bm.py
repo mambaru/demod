@@ -41,15 +41,9 @@ class client:
   
   def connect(self):
     self.cli = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    
-    #s.bind((HOST, PORT))
-    #self.cli.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     self.cli.setsockopt(socket.SOL_SOCKET, socket.SO_LINGER, struct.pack('ii', 1, 0) )
-    #self.cli.bind(("0.0.0.0", 22222))
-    #self.cli.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     self.cli.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
     self.cli.connect( (self.conf['host'],int(self.conf['port']) ) )
-    #self.cli.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     
   def close(self):
     self.cli.shutdown(socket.SHUT_RDWR);
@@ -64,26 +58,19 @@ class client:
       'params':self.conf['params']
     })+"\r\n";
     
-    ##self.cli.send(reqstr)
     sd = reqstr[:5];
     self.cli.sendall(sd)
-    #print(sd)
     sd = reqstr[5:];
     self.cli.sendall(sd)
-    #print(sd)
-    #return
     data = []
     while True:
       data += self.cli.recv(4096*2)
-      #print(data[-1:][0])
       if len(data) > 0 and data[-1:][0]=='\n':
         break
     respstr = ''
     for d in data:
       if d>=32 and d <='~':
         respstr+=d
-    #print(respstr)
-    #exit(0)
     return json.loads( respstr );
   
   def request_ts(self):
@@ -147,8 +134,6 @@ class client:
     print("CLOSE")
     self.cli.shutdown();
     self.cli.close()
-  
-    
 
 if __name__ == '__main__':
   cli = client()

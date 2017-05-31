@@ -1,29 +1,12 @@
-include(BuildInfo)
-
-include_directories(../wfc)
-include_directories(../wfc_startup)
-include_directories(../wfc_config)
-include_directories(../wfc_core)
-include_directories(../wfc_logger)
-include_directories(../wfc_hub)
-include_directories(../wfc_repli-hub)
-include_directories(../wfc_pubsub-service)
-include_directories(../wfc_pubsub-gateway)
-include_directories(../wfc_demo)
-
-include_directories(../demo)
 
 add_executable(demod demod.cpp )
 
-#find_library(COMET NAMES comet PATHS ../../comet/build/comet NO_DEFAULT_PATH)
+set(demod_libraries wfcroot wfc_demo)
 
-#message(STATUS ${COMET} )
+target_link_libraries(demod ${demod_libraries})
 
-#target_link_libraries(demod wfc wfc_startup wfc_core wfc_config wfc_logger wfc_hub wfc_pubsub-service demo  wfc_demo)
-#add_dependencies(demod wfc wfc_startup wfc_core wfc_config wfc_logger wfc_hub wfc_pubsub-service demo wfc_demo)
+add_dependencies(demod ${demod_libraries})
 
-target_link_libraries(demod wfc_demo wfc wfc_startup wfc_core wfc_config wfc_logger wfc_hub wfc_repli-hub wfc_pubsub-service wfc_pubsub-gateway demo )
-add_dependencies(demod wfc_demo wfc wfc_startup wfc_core wfc_config wfc_logger wfc_hub wfc_repli-hub wfc_pubsub-service wfc_pubsub-gateway demo )
-
+include(BuildInfo)
 
 build_info(demod demod)

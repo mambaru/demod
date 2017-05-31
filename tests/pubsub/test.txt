@@ -1,0 +1,5 @@
+Trying 0.0.0.0...
+Connected to 0.0.0.0.
+Escape character is '^]'.
+{"jsonrpc":"2.0","result":"ready","id":1}
+{"jsonrpc":"2.0","method":"publish","params":{"channel":"test","action":"publish","limit":0,"lifetime":0,"cursor":1,"identity":"","key":null,"content":null}}
