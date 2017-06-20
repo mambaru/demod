@@ -1,0 +1,29 @@
+{
+  "import":["hashlib"],
+  "options":{
+    /*Длина значений*/
+    "vallen":20
+  },
+
+  "set":["${set-query}",1, "получение кэша"],
+  "get":["${get-query}",1, "получение кэша"],
+  "get_hashed":["${get_hashed-query}",1, "получение кэша"],
+  "multiget_hashed":["${multiget_hashed-query}",1, "получение кэша"],
+
+  "queries":{
+    "set-query" : {"method":"set", "params":"${set-params}"},
+    "get-query" : {"method":"get", "params":"${get-params}"},
+    "get_hashed-query" : {"method":"get_hashed", "params":"${get-params}"},
+    "multiget_hashed-query" : {"method":"multiget_hashed", "params":"${multiget-params}"}
+  },
+  "params":{
+    "set-params":{"key":"${req-key}", "value":"${req-value}"},
+    "get-params":{"key":"${req-key}"},
+    "multiget-params":{"keys":"${req-keys10}"}
+  },
+  "keyval":{
+    "req-key":"{%'key${I}'%}",
+    "req-value":"{%'VALUE_${I}'%}",
+    "req-keys10":"{%['key'+str(i) for i in range(10)]%}"
+  }
+}
