@@ -8,7 +8,7 @@
   "hash":["${hash-query}",1, "получение кэша"],
 
   "queries":{
-    "hash-query" : {"method":"hash", "params":"${hash-params}"}
+    "hash-query" : {"method":"get_hash", "params":"${hash-params}"}
   },
   "params":{
     "hash-params":{"value":"${req-value}"}
