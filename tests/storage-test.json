@@ -26,6 +26,6 @@
   "keyval":{
     "req-key":"{%'key${I}'%}",
     "req-value":"{%'VALUE_${I}'%}",
-    "req-keys10":"{%['key'+str(i) for i in range(1)]%}"
+    "req-keys10":"{%['key'+str(i) for i in range(10)]%}"
   }
 }
