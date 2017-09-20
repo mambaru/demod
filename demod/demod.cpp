@@ -10,5 +10,5 @@ int main(int argc, char* argv[])
     {
       std::make_shared< demo::demo_package >()
     }
-  )).run(argc, argv);
+  )).run(argc, argv, "Educational project");
 }

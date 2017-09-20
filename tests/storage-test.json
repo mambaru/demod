@@ -9,6 +9,7 @@
   "get":["${get-query}",1, "получение кэша"],
   "get_hashed":["${get_hashed-query}",1, "получение кэша"],
   "multiget_hashed":["${multiget_hashed-query}",1, "получение кэша"],
+  "multiget_hashed2":["${multiget_hashed2-query}",1, "получение кэша 2"],
   "multiget":["${multiget-query}",1, "получение кэша"],
 
   "queries":{
@@ -16,6 +17,7 @@
     "get-query" : {"method":"get", "params":"${get-params}"},
     "get_hashed-query" : {"method":"get_hashed", "params":"${get-params}"},
     "multiget_hashed-query" : {"method":"multiget_hashed", "params":"${multiget-params}"},
+    "multiget_hashed2-query" : {"method":"multiget_hashed2", "params":"${multiget-params}"},
     "multiget-query" : {"method":"multiget", "params":"${multiget-params}"}
   },
   "params":{
