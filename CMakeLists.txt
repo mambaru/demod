@@ -3,7 +3,8 @@ cmake_minimum_required(VERSION 2.6)
 project(demod)
 
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/wfcroot/wfc/cmake")
-include(Wfc)
+include(mambaopt)
+include(wfc)
 
 include_directories(.)
 
