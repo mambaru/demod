@@ -4,7 +4,7 @@ project(demod)
 
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/wfcroot/wfc/cmake")
 include(mambaopt)
-include(wfc)
+include(Wfc)
 
 include_directories(.)
 
