@@ -40,3 +40,9 @@ void tcpclient::send(const std::string& d)
   _impl->send( std::make_unique<iow::io::data_type>(d.begin(), d.end()) );
 }
 
+void tcpclient::stop()
+{
+  _impl->close();
+  _impl->stop();
+}
+

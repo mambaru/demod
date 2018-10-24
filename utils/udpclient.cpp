@@ -44,3 +44,8 @@ void udpclient::send(const std::string& d)
   _impl->send( std::make_unique<iow::io::data_type>(d.begin(), d.end()) );
 }
 
+void udpclient::stop()
+{
+  _impl->stop();
+}
+
