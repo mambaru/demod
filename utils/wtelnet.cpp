@@ -5,7 +5,8 @@
 #include <thread>
 #include <condition_variable>
 
-#error cat for udp block
+
+int batch = 1;
 bool run  = true;
 std::atomic<int> count; 
 std::condition_variable cv;
@@ -15,27 +16,31 @@ template<typename H>
 void cin_thread(std::shared_ptr<H> cli)
 {
   std::string str;
-  std::cout << "-1-" << run << std::endl;
   while ( run && !std::cin.eof() )
   {
-    std::cout << "-2-" << std::endl;
     std::unique_lock<std::mutex> lk(cv_m);
-    cv.wait(lk, []{return count < 10 && run;});
-    std::cout << "-2.1- " << count << std::endl;
+    cv.wait(lk, []
+    {
+      return count < batch && run;
+    });
     std::cin >> str;
-    std::cout << "-2.2- " << count << std::endl;
+    if ( str.empty() )
+      continue;
     if ( std::cin.eof() )
       break;
-    std::cout << "-2.3- send: " << str << std::endl;
     ++count;
     cli->send(str);
     str.clear();
   }
-  std::cout << "-3-" << std::endl;
+  
   std::unique_lock<std::mutex> lk(cv_m);
-  std::cout << "-4-" << std::endl;
-  cv.wait(lk, []{return count == 0 && run;});
-  std::cout << "-5-" << std::endl;
+  
+  cv.wait(lk, []
+  {
+  
+    return count == 0 && run;
+  });
+  
   cli->stop();
 }
 
@@ -43,18 +48,26 @@ void cin_thread(std::shared_ptr<H> cli)
 void handler( std::string str)
 {
   --count;
-  std::cout << str << " " << count << std::endl;
+  std::cout << str << std::endl;
   cv.notify_all();
 }
 
 int main(int argc, char* argv[])
 {
-  if ( argc!=4 )
+  if ( argc < 4 )
   {
     std::cout << "usage: " << std::endl;
+    std::cout << "\twtelnet protocol addr port [batch]"<< std::endl;
     std::cout << "\twtelnet tcp 0.0.0.0 12345"<< std::endl;
-    std::cout << "\twtelnet udp 0.0.0.0 12345"<< std::endl;
+    std::cout << "\twtelnet udp 0.0.0.0 12345 1"<< std::endl;
+    std::cout << "\twtelnet udp 0.0.0.0 12345 100"<< std::endl;
     return -1;
+  }
+  else if (argc > 4)
+  {
+    batch = std::atoi(argv[4]);
+    if ( batch == 0)
+      batch = 1;
   }
   
   std::thread thread;
@@ -63,14 +76,14 @@ int main(int argc, char* argv[])
   using namespace std::placeholders;
   if ( std::string(argv[1]) == "tcp")
   {
-    std::cout << "IP4/TCP" << std::endl;
+    std::cout << "IP4/TCP BATCH=" << batch << std::endl;
     auto tcp = std::make_shared<tcpclient>();
     tcp->start(ios, argv[2], argv[3], handler );
     thread = std::thread( std::bind(cin_thread<tcpclient>, tcp) );
   }
   else if ( std::string(argv[1]) == "udp")
   {
-    std::cout << "IP4/UDP" << std::endl;
+    std::cout << "IP4/UDP BATCH=" << batch << std::endl;
     auto udp = std::make_shared<udpclient>();
     udp->start(ios, argv[2], argv[3], handler );
     thread = std::thread( std::bind(cin_thread<udpclient>, udp) );
