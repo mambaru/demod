@@ -8,9 +8,9 @@ class tcpclient
 {
   class impl;
 public:
-  void start( boost::asio::io_service& io, std::string addr, std::string port, std::function<void(std::string)> h);
+  void start( boost::asio::io_service& io, const std::string& addr, const std::string& port, std::function<void(std::string)> h);
   void stop();
-  void send(const std::string& data);
+  void send(const std::string& d);
 private:
   std::shared_ptr<impl> _impl;
 };
