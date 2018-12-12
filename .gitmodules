@@ -4,3 +4,6 @@
 [submodule "wfcroot"]
 	path = wfcroot
 	url = git@github.lan:cpp/wfcroot.git
+[submodule "external/cmake-ci"]
+	path = external/cmake-ci
+	url = git@github.lan:cpp/cmake-ci.git
