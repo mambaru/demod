@@ -5,12 +5,15 @@
 #include <thread>
 #include <condition_variable>
 
-
+namespace 
+{
 int batch = 1;
 bool run  = true;
 std::atomic<int> count; 
 std::condition_variable cv;
 std::mutex cv_m; 
+
+void handler( const std::string& str);
 
 template<typename H>
 void cin_thread(std::shared_ptr<H> cli)
@@ -45,11 +48,13 @@ void cin_thread(std::shared_ptr<H> cli)
 }
 
 
-void handler( std::string str)
+void handler( const std::string& str)
 {
   --count;
   std::cout << str << std::endl;
   cv.notify_all();
+}
+
 }
 
 int main(int argc, char* argv[])
