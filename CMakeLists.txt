@@ -11,7 +11,8 @@ list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/wfcroot/wfc/cmake)
 include(Wfc)
 
 include_directories(.)
-add_subdirectory(demod)
+
 add_subdirectory(utils)
 add_subdirectory(wfc_demo)
+add_subdirectory(daemon)
 

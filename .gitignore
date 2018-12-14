@@ -1,4 +1,5 @@
 .demod_build.counter
+*build_info.h
 *~
 *.kdev4
 *.pyc
