@@ -1,2 +1,2 @@
-missingInclude:./demod/demod.cpp:1
-unmatchedSuppression:./demod/demod.cpp:1
+missingInclude:./daemon/demod.cpp:1
+unmatchedSuppression:./daemon/demod.cpp:1
