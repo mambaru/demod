@@ -1,9 +1,9 @@
-[submodule "wfc_demo"]
-	path = wfc_demo
-	url = git@github.lan:cpp/wfc_demo.git
-[submodule "wfcroot"]
-	path = wfcroot
-	url = git@github.lan:cpp/wfcroot.git
 [submodule "external/cmake-ci"]
 	path = external/cmake-ci
 	url = git@github.lan:cpp/cmake-ci.git
+[submodule "external/wfcroot"]
+	path = external/wfcroot
+	url = git@github.lan:cpp/wfcroot.git
+[submodule "external/wfc_demo"]
+	path = external/wfc_demo
+	url = git@github.lan:cpp/wfc_demo.git
