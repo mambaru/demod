@@ -7,3 +7,36 @@
 [submodule "external/wfc_demo"]
 	path = external/wfc_demo
 	url = git@github.lan:cpp/wfc_demo.git
+[submodule "external/faslib"]
+	path = external/faslib
+	url = git@github.lan:cpp/faslib.git
+[submodule "external/wjson"]
+	path = external/wjson
+	url = git@github.lan:cpp/wjson.git
+[submodule "external/wlog"]
+	path = external/wlog
+	url = git@github.lan:cpp/wlog.git
+[submodule "external/wflow"]
+	path = external/wflow
+	url = git@github.lan:cpp/wflow.git
+[submodule "external/iow"]
+	path = external/iow
+	url = git@github.lan:cpp/iow.git
+[submodule "external/wjrpc"]
+	path = external/wjrpc
+	url = git@github.lan:cpp/wjrpc.git
+[submodule "external/wrtstat"]
+	path = external/wrtstat
+	url = git@github.lan:cpp/wrtstat.git
+[submodule "external/wfc"]
+	path = external/wfc
+	url = git@github.lan:cpp/wfc.git
+[submodule "external/wfc_core"]
+	path = external/wfc_core
+	url = git@github.lan:cpp/wfc_core.git
+[submodule "external/wfc_io"]
+	path = external/wfc_io
+	url = git@github.lan:cpp/wfc_io.git
+[submodule "external/wfc_jsonrpc"]
+	path = external/wfc_jsonrpc
+	url = git@github.lan:cpp/wfc_jsonrpc.git
