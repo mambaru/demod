@@ -4,10 +4,9 @@ project(demod)
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 include(ci)
-wfcroot()
-getlibs(wfc_demo)
 
-include(Wfc)
+wfcroot(wfc_demo)
+
 include_directories(.)
 
 add_subdirectory(utils)
