@@ -33,30 +33,30 @@
     
     "Release":{
       "static":true,
-      "shared":true,
+      "shared":false,
       
       "production":true,
-      "loads":true,
-      "stress":true,
-      "devel":true
+      "loads":false,
+      "stress":false,
+      "devel":false
     },
     "RelWithDebInfo":{
-      "static":true,
-      "shared":true,
+      "static":false,
+      "shared":false,
       
-      "production":true,
-      "loads":true,
-      "stress":true,
-      "devel":true
+      "production":false,
+      "loads":false,
+      "stress":false,
+      "devel":false
     },
     "Debug":{
-      "static":true,
-      "shared":true,
+      "static":false,
+      "shared":false,
       
-      "production":true,
-      "loads":true,
-      "stress":true,
-      "devel":true
+      "production":false,
+      "loads":false,
+      "stress":false,
+      "devel":false
     }
   }
 }
