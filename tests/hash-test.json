@@ -1,0 +1,20 @@
+{
+  "import":["hashlib"],
+  "options":{
+    /*Длина значений*/
+    "vallen":20
+  },
+
+  "hash":["${hash-query}",1, "получение кэша"],
+
+  "queries":{
+    "hash-query" : {"method":"get_hash", "params":"${hash-params}"}
+  },
+  "params":{
+    "hash-params":{"value":"${req-value}"}
+  },
+
+  "keyval":{
+    "req-value":"{% ''.join( chr( ord('A') + ${I} % 25 ) for _ in range( ${vallen} ) )  %}-${I}-${C2}"
+  }
+}
