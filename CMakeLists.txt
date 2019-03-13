@@ -8,6 +8,14 @@ wfcroot(wfc_demo)
 
 include_directories(.)
 
-add_subdirectory(utils)
 add_subdirectory(daemon)
+
+if ( BUILD_TESTING )
+  enable_testing()
+  add_subdirectory(tests)
+endif()
+
+if ( WITH_SAMPLES )
+  add_subdirectory(utils)
+endif()
 
