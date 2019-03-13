@@ -34,9 +34,9 @@ stages:
   - build
   - check
   - merge
-  - clean
   - publish
   - deploy
+  - clean
   
 night-build:
   stage: build
