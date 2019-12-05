@@ -4,10 +4,17 @@ project(demod)
 
 include(cmake/ci.cmake)
 
-wfcroot(wfc_demo)
+wci_getlib(NAME wfcroot SUPERMODULE)
+wci_getlib(NAME wfc_demo)
 
-include_directories(.)
-
-add_subdirectory(utils)
 add_subdirectory(daemon)
+
+if ( BUILD_TESTING )
+  enable_testing()
+  add_subdirectory(tests)
+endif()
+
+if ( WITH_SAMPLES )
+  add_subdirectory(utils)
+endif()
 
