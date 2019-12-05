@@ -4,9 +4,8 @@ project(demod)
 
 include(cmake/ci.cmake)
 
-wfcroot(wfc_demo)
-
-include_directories(.)
+wci_getlib(NAME wfcroot SUPERMODULE)
+wci_getlib(NAME wfc_demo)
 
 add_subdirectory(daemon)
 
