@@ -4,6 +4,7 @@ project(demod)
 
 include(cmake/ci.cmake)
 
+wci_add_options()
 wci_getlib(NAME wfcroot SUPERMODULE)
 wci_getlib(NAME wfc_demo)
 

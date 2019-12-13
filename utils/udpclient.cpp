@@ -13,7 +13,7 @@ class udpclient::impl
 {
 public:
   typedef iow::ip::udp::client::client<> super;
-  explicit impl(boost::asio::io_service& io): super(io) {};
+  explicit impl(boost::asio::io_service& io): super(io) {}
 };
 
 void udpclient::start(boost::asio::io_service& io, const std::string& addr, const std::string& port, std::function<void(std::string)> h)
@@ -24,8 +24,8 @@ void udpclient::start(boost::asio::io_service& io, const std::string& addr, cons
   opt.port = port;
   opt.connection.reader.sep = "\r\n";
   opt.connection.writer.sep = "\r\n";
-  
-  
+
+
   std::function<void(iow::io::data_ptr)> handler = [h](iow::io::data_ptr d)
   {
     if ( d == nullptr )
@@ -33,7 +33,7 @@ void udpclient::start(boost::asio::io_service& io, const std::string& addr, cons
     else
       h(std::string(d->begin(), d->end()));
   };
-  
+
   using namespace std::placeholders;
   opt.connection.input_handler = std::bind(handler, _1);
   _impl->start(opt);
