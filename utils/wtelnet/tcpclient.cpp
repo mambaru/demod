@@ -21,7 +21,6 @@ void tcpclient::start(boost::asio::io_service& io, const std::string& addr, cons
   opt.connection.reader.sep = "\r\n";
   opt.connection.writer.sep = "\r\n";
 
-
   std::function<void(iow::io::data_ptr)> handler = [h](iow::io::data_ptr d)
   {
     if ( d == nullptr )
