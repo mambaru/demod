@@ -6,7 +6,7 @@
 
 int main(int argc, char* argv[])
 {
-  return ::wfc::wfc<demod_build_info>( ::wfc::wfcroot(
+  return wfc::wfc<demod_build_info>( wfc::wfcroot(
     {
       std::make_shared< demo::demo_package >()
     }
