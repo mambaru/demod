@@ -12,7 +12,7 @@
 [![codecov](https://codecov.io/gh/mambaru/demod/branch/master/graph/badge.svg)](https://codecov.io/gh/mambaru/demod)
 
 # Демо проект демона на [WFC](https://github.com/mambaru/wfcroot). 
-
+* Актуальная документация [md](https://gitlab.mamba.ru/cpp/docs/-/blob/master/demo/Readme.md)
 * Документация [doxygen](https://mambaru.github.io/demod/index.html).
 * Репозитарий на [github.com](https://github.com/mambaru/demod).
 * Отчет [coverage](https://mambaru.github.io/demod/cov-report/index.html)
