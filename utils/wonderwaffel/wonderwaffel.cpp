@@ -1,31 +1,39 @@
-#include <wonderwaffel/wonderwaffel.hpp>
-#include <wfc/name.hpp>
-#include <demo/api/get_json.hpp>
-#include <demo/idemo.hpp>
+
 #include <package/demo_package.hpp>
+#include <hash/ihash.hpp>
+#include <hash/api/get_hash_json.hpp>
+#include <wfc/name.hpp>
+#include <wonderwaffel/wonderwaffel.hpp>
+#include "wonderwaffel_build_info.h"
 
+namespace{
 
-struct demo_waffel_options{};
-
-class demo_waffel_domain
-  : public wfc::domain_object<wfc::iinterface, demo_waffel_options>
-{
-public:
-  virtual void start() override
+  using namespace demo::hash;
+  bool gen_get_hash(request::get_hash::ptr&)
   {
+    return true;
   }
-};
 
-WFC_NAME(demo_waffel)
-WFC_NAME2(tank_demo_get, "tank_demo_get")
+  bool check_get_hash(const response::get_hash::ptr&)
+  {
+    return true;
+  }
+
+}
+
+WFC_NAME2(method_get_hash0, "method-get_hash0")
+WFC_NAME2(method_get_hash1, "method-get_hash1")
+WFC_NAME2(method_get_hash2, "method-get_hash2")
 
 int main(int argc, char* argv[])
 {
-  wfc::wonderwaffel ww;
+  wfc::wonderwaffel<wonderwaffel_build_info> ww;
   ww.add_package<demo::demo_package>();
-  ww.add_object<n_demo_waffel, demo_waffel_domain>();
-  ww.add_tank<tank_demo_get, demo::request::get_json, demo::response::get_json, wjson::empty_object<> >(&demo::istorage::get);
-  ww.add_tank<tank_demo_get>(&demo::istorage::get);
-  //ww.add_tank<tank_demo_get, demo::request::get_json, demo::response::get_json, wjson::empty_object<> >(&demo::istorage::get);
-  ww.run(argc, argv,"Вундервафля для обстрела demo storage");
+  {
+    using namespace demo::hash;
+    ww.add_tank<method_get_hash0, request::get_hash_json, response::get_hash_json>(&ihash::get_hash);
+    ww.add_tank<method_get_hash1, request::get_hash_json, response::get_hash_json>(&ihash::get_hash, gen_get_hash);
+    ww.add_tank<method_get_hash2, request::get_hash_json, response::get_hash_json>(&ihash::get_hash, gen_get_hash, check_get_hash);
+  }
+  ww.run(argc, argv, "Вундервафля для обстрела demo storage");
 }

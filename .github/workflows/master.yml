@@ -12,12 +12,8 @@ jobs:
     - uses: actions/checkout@v1
     - name: setup
       run: |
-        sudo locale-gen ru_RU
-        sudo locale-gen ru_RU.UTF-8
-        sudo update-locale
-
-        sudo apt-get install -y lcov doxygen
-        ./boost-setup.sh
+        export GITHUB_REPOSITORY=${GITHUB_REPOSITORY}
+        bash setup.sh
       working-directory: ./.github/workflows
 
 
@@ -50,7 +46,7 @@ jobs:
 
     - name: push tag
       run: |
-        git pull --tags https://${{ secrets.ACCESS_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git
+        git pull --tags --force https://${{ secrets.ACCESS_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git
         tag=$(git describe --tags `git rev-list --tags --max-count=1`)
         echo "  tag=$tag"
         git config --global user.email "migashko@gmail.com"
