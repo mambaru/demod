@@ -6,8 +6,8 @@ include(cmake/ci.cmake)
 
 #option(WFC_ENABLE_STAT "Enable statistics components" ON)
 
-wci_getlib(NAME wfcroot SUPERMODULE)
-wci_getlib(NAME wfc_demo)
+wci_submodule(NAME wfcroot SUPERMODULE)
+wci_submodule(NAME wfc_demo)
 
 add_subdirectory(daemon)
 
