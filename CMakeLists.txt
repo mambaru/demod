@@ -4,7 +4,8 @@ project(demod)
 
 include(cmake/ci.cmake)
 
-#option(WFC_ENABLE_STAT "Enable statistics components" ON)
+# or use env ENABLE_STAT=ON make ...
+# option(WFC_ENABLE_STAT "Enable statistics components" ON)
 
 wci_submodule(NAME wfcroot SUPERMODULE)
 wci_submodule(NAME wfc_demo)

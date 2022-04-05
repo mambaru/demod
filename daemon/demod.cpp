@@ -8,7 +8,7 @@ int main(int argc, char* argv[])
 {
   return wfc::wfc<demod_build_info>( wfc::wfcroot(
     {
-      std::make_shared< demo::demo_package >()
+      std::make_shared< damba::demo_package >()
     }
-  )).run(argc, argv, "Educational project");
+  )).run(argc, argv, "Daemon demod educational project");
 }

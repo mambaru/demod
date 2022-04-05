@@ -8,7 +8,7 @@
 
 namespace{
 
-  using namespace demo::hash;
+  using namespace damba::hash;
   bool gen_get_hash(request::get_hash::ptr&)
   {
     return true;
@@ -28,9 +28,9 @@ WFC_NAME2(method_get_hash2, "method-get_hash2")
 int main(int argc, char* argv[])
 {
   wfc::wonderwaffel<wonderwaffel_build_info> ww;
-  ww.add_package<demo::demo_package>();
+  ww.add_package<damba::demo_package>();
   {
-    using namespace demo::hash;
+    using namespace damba::hash;
     ww.add_tank<method_get_hash0, request::get_hash_json, response::get_hash_json>(&ihash::get_hash);
     ww.add_tank<method_get_hash1, request::get_hash_json, response::get_hash_json>(&ihash::get_hash, gen_get_hash);
     ww.add_tank<method_get_hash2, request::get_hash_json, response::get_hash_json>(&ihash::get_hash, gen_get_hash, check_get_hash);
