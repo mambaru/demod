@@ -4,11 +4,8 @@ project(demod)
 
 include(cmake/ci.cmake)
 
-# or use env ENABLE_STAT=ON make ...
-# option(WFC_ENABLE_STAT "Enable statistics components" ON)
-
 wci_submodule(NAME wfcroot SUPERMODULE)
-wci_submodule(NAME wfc_demo)
+wci_submodule(NAME wfc_demo )
 
 add_subdirectory(daemon)
 
@@ -18,4 +15,3 @@ if ( BUILD_TESTING )
 endif()
 
 add_subdirectory(utils)
-
