@@ -1,0 +1,4 @@
+# Список подавлений ложных предупреждений cppcheck относительно корня проекта.
+unknownMacro:
+missingInclude:
+unmatchedSuppression:

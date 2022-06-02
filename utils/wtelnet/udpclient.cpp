@@ -13,10 +13,10 @@ class udpclient::impl
 {
 public:
   typedef iow::ip::udp::client::client<> super;
-  explicit impl(boost::asio::io_service& io): super(io) {}
+  explicit impl(boost::asio::io_context& io): super(io) {}
 };
 
-void udpclient::start(boost::asio::io_service& io, const std::string& addr, const std::string& port, std::function<void(std::string)> h)
+void udpclient::start(boost::asio::io_context& io, const std::string& addr, const std::string& port, std::function<void(std::string)> h)
 {
   _impl = std::make_shared<impl>(io);
   iow::ip::udp::client::options opt;

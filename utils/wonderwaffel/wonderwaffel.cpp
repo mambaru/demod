@@ -4,17 +4,17 @@
 #include <hash/api/get_hash_json.hpp>
 #include <wfc/name.hpp>
 #include <wonderwaffel/wonderwaffel.hpp>
-#include "wonderwaffel_build_info.h"
+#include "wonderwaffel1_build_info.h"
 
 namespace{
 
   using namespace damba::hash;
-  bool gen_get_hash(request::get_hash::ptr&)
+  bool gen_get_hash(request::get_hash&,  response::get_hash&)
   {
     return true;
   }
 
-  bool check_get_hash(const response::get_hash::ptr&)
+  bool check_get_hash(const request::get_hash&, const response::get_hash&, const response::get_hash&)
   {
     return true;
   }
@@ -27,7 +27,7 @@ WFC_NAME2(method_get_hash2, "method-get_hash2")
 
 int main(int argc, char* argv[])
 {
-  wfc::wonderwaffel<wonderwaffel_build_info> ww;
+  wfc::wonderwaffel<wonderwaffel1_build_info> ww;
   ww.add_package<damba::demo_package>();
   {
     using namespace damba::hash;

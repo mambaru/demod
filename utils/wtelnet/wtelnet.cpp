@@ -78,7 +78,7 @@ int main(int argc, char* argv[])
   
   std::thread thread;
   wlog::disable();
-  boost::asio::io_service ios;
+  boost::asio::io_context ios;
   using namespace std::placeholders;
   if ( std::string(argv[1]) == "tcp")
   {
