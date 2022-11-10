@@ -4,8 +4,10 @@ project(demod)
 
 include(cmake/ci.cmake)
 
+set(ENABLE_STAT ON CACHE BOOL "Принудительное включение статистики" FORCE )
 wci_submodule(NAME wfcroot SUPERMODULE)
 wci_submodule(NAME wfc_demo )
+
 
 add_subdirectory(daemon)
 
