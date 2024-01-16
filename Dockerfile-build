@@ -1,0 +1,10 @@
+FROM debian
+ENV LANG ru_RU.UTF-8
+ENV TZ="Europe/Moscow"
+RUN apt update
+RUN apt -y install g++ cmake git wget make
+COPY . .
+RUN ls -l
+RUN pwd
+RUN make release
+RUN make install

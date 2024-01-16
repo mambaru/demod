@@ -4,6 +4,7 @@
 #include <wfcroot/wfcroot.hpp>
 #include <package/demo_package.hpp>
 
+/**/
 int main(int argc, char* argv[])
 {
   return wfc::wfc<demod_build_info>( wfc::wfcroot(

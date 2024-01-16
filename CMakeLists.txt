@@ -1,6 +1,6 @@
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 3.10)
 
-project(demod)
+project(demod VERSION "0.9.8")
 
 include(cmake/ci.cmake)
 
@@ -17,3 +17,5 @@ if ( BUILD_TESTING )
 endif()
 
 add_subdirectory(utils)
+
+include(cmake/install.cmake)
